@@ -1,1 +1,45 @@
+This is the third step of the hunt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Protected</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 8px;
+    }
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Enter Password to Continue</h2>
+  <input type="text" id="passwordInput" placeholder="Password"> <!-- Visible password -->
+  <button onclick="checkPassword()">Submit</button>
+  <p id="error"></p>
+
+  <script>
+    const correctPassword = "letmein"; // Change this to your desired password
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const error = document.getElementById("error");
+
+      if (input === correctPassword) {
+        window.location.href = "part4.html";
+      } else {
+        error.textContent = "Incorrect password. Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
 

@@ -1,11 +1,49 @@
+This is the second clue page
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Protected Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      text-align: center;
+    }
+    #content {
+      display: none;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome!</h1>
-  <p>This is the page you only see after entering the correct password.</p>
+  <div id="login">
+    <h2>Enter Password</h2>
+    <input type="password" id="passwordInput" placeholder="Password">
+    <button onclick="checkPassword()">Submit</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <div id="content">
+    <h1>Welcome to the protected content!</h1>
+    <p>This content is only shown after entering the correct password.</p>
+  </div>
+
+  <script>
+    const correctPassword = "MATTACLARK";
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const error = document.getElementById("error");
+
+      if (input === correctPassword) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        error.textContent = "Incorrect password. Try again.";
+      }
+    }
+  </script>
 </body>
 </html>

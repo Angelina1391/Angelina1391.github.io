@@ -18,7 +18,7 @@ Welcome to the Scavenger Hunt!
   <body>
     <div id="login">
       <h2>Enter Password</h2>
-      <input type="password" id="passwordInput" placeholder= "Password">
+      <input type="text" id="passwordInput" placeholder= "Password">
       <button onclick="checkPassword()">Submit</button>
       <p id="error" style="color:red;"></p>
     </div>
@@ -36,8 +36,7 @@ Welcome to the Scavenger Hunt!
         const error = document.getElementById("error");
 
         if (input === correctPassword) {
-          document.getElementByID("login").style.display = "none";
-          document.getElementById("content").style.display = "block";
+          window.location.href + "protected.html";
         } else {
           error.textContent = "Incorrect password. Try again.";
         }

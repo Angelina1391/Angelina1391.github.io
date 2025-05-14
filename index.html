@@ -1,5 +1,4 @@
-Welcome to the Scavenger Hunt!
-<!DOCTYPE HTML>
+
 <html lang= "en">
   <head>
     <meta charset= "UTF-8">
@@ -9,14 +8,41 @@ Welcome to the Scavenger Hunt!
         font-family: Arial, sans-serif;
         padding: 50px;
         text-align: center;
+        max-width: 800px;
+        margin: 0;
+        padding: 0;
+        background-color: white;
       }
+
+      .border-container {
+        border: 10px solid orange;
+        padding: 40px;
+        margin: 20px;
+        max-width: 900px;
+        margin: 40px auto;
+        box-sizing: border-box;
+      }
+      
       #content {
         display: none;
       }
+      #intro {
+        margin-bottom: 40px;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: left;
     </style>
   </head>
   <body>
-    <div id="login">
+    <h1>Welcome to the Scavenger Hunt!</h1>
+    <div id="intro">
+      <p> All answers will be related to the topics and artists in this class. Please enter the answers in capital letters with no spaces or punctuation.</p>
+      <p> You may need to reference the internet to solve some of these clues; do not be afraid to google certain names, phrases, numbers, etc. It may also be helpful to carry a paper and pencil.</p>
+      <p>Each clue also includes a hint with some additional info if needed, or feel free to Ask Angie and Melissa for help!</p>
+      <p><strong>Happy Hunting!</strong></p>
+    </div>
+    
+      <div id="login">
       <h2>Enter Password</h2>
       <input type="text" id="passwordInput" placeholder= "Password">
       <button onclick="checkPassword()">Submit</button>

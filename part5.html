@@ -1,1 +1,111 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Part 2</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: white;
+      font-family: Arial, sans-serif;
+    }
 
+    .border-container {
+      border: 10px solid blue;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #intro {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    #login {
+      margin-top: 20px;
+    }
+
+    input, button {
+      font-size: 16px;
+      padding: 8px;
+      margin-top: 10px;
+    }
+
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+    
+    #hintText {
+      display: none;
+      margin-top: 10px;
+      color: #555;
+      font-style: italic;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="border-container">
+    <h1>Congrats! This is the fifth part of the scavenger hunt.</h1>
+
+    <div id="intro">
+      <p>All answers will be related to the topics and artists in this class. Please enter the answers in capital letters with no spaces or punctuation.</p>
+    </div>
+
+    <div id="login">
+      <h2>Enter Password</h2>
+      <input type="text" id="passwordInput" placeholder="Password">
+      <br>
+      <button onclick="checkPassword()">Submit</button>
+      <p id="error"></p>
+
+      <div id="hintSection">
+        <button onclick="toggleHint()" id="hintButton">Show Hint</button>
+        <p id="hintText">You should use the internet to decode this one; the word "Caesar" and the number "3" are relevant. The answer relates to the Cooper Union.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const correctPassword = "ARCHIVE";
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const error = document.getElementById("error");
+
+      if (input === correctPassword) {
+        window.location.href = "protected.html";
+      } else {
+        error.textContent = "Incorrect password. Try again.";
+      }
+    }
+
+    function toggleHint() {
+      const hintText = document.getElementById("hintText");
+      const hintButton = document.getElementById("hintButton");
+
+      if (hintText.style.display === "none") {
+        hintText.style.display = "block";
+        hintButton.textContent = "Hide Hint";
+      } else {
+        hintText.style.display = "none";
+        hintButton.textContent = "Show Hint";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -45,6 +45,13 @@
       color: red;
       margin-top: 10px;
     }
+    
+    #hintText {
+      display: none;
+      margin-top: 10px;
+      color: #555;
+      font-style: italic;
+    }
 
     p {
       margin: 10px 0;
@@ -66,9 +73,13 @@
       <br>
       <button onclick="checkPassword()">Submit</button>
       <p id="error"></p>
-    </div>
-  </div>
 
+  <div id="hintSection">
+    <button onclick="showHint()">Show Hint</button>
+    <p id="hintText"> Use the key provided to figure out the letters corresponding to each number. Unscramble the letters to form the answer; it is an artist's last name.</p>
+  </div>
+</div>
+  
   <script>
     const correctPassword = "MATTACLARK";
 
@@ -81,6 +92,10 @@
       } else {
         error.textContent = "Incorrect password. Try again.";
       }
+    }
+
+    function showHint() {
+      document.getElementById("hintText").style.display = "block";
     }
   </script>
 </body>

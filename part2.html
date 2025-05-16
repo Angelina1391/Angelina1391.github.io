@@ -75,7 +75,7 @@
       <p id="error"></p>
 
   <div id="hintSection">
-    <button onclick="toggleHint()" id="hint"Button">Show Hint</button>
+    <button onclick="toggleHint()" id="hintButton">Show Hint</button>
     <p id="hintText"> Use the key provided to figure out the letters corresponding to each number. Unscramble the letters to form the answer; it is an artist's last name.</p>
   </div>
 </div>
@@ -95,8 +95,16 @@
       }
     }
 
-    function showHint() {
-      document.getElementById("hintText").style.display = "block";
+    function toggleHint() {
+      const hintText = document.getElementById("hintText");
+      const hintButton = document.getElementById("hintButton");
+
+      if (hintText.style.display === "none") {
+        hintText.style.display = "block";
+        hintButton.textContent = "Hide Hint";
+      } else {
+        hintText.style.display = "none";
+        hintButton.textContent = "Show Hint";
     }
   </script>
 </body>

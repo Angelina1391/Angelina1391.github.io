@@ -77,7 +77,7 @@
       <p id="error"></p>
       
       <div id="hintSection">
-        <button onclick="showHint()">Show Hint</button>
+        <button onclick="toggleHint()" id="hintButton">Show Hint</button>
         <p id="hintText">Adress the image first, then the name, date, and time. The answer will be found in a specific magazine issue, and is the name of a street.</p>
       </div>
     </div>
@@ -97,8 +97,17 @@
       }
     }
 
-    function showHint() {
-      document.getElementById(h="hintText").style.display = "block";
+    function toggleHint() {
+      const hintText = document.getElementById("hintText");
+      const hintButton = document.getElementById("hintButton");
+
+       if (hintText.style.display === "none") {
+        hintText.style.display = "block";
+        hintButton.textContent = "Hide Hint";
+      } else {
+        hintText.style.display = "none";
+        hintButton.textContent = "Show Hint";
+       }
     }
   </script>
 </body>

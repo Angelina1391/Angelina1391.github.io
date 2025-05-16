@@ -10,6 +10,7 @@
       height: 100%;
       background-color: white;
       font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
     .border-container {
@@ -23,6 +24,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -38,22 +41,49 @@
       color: #333;
     }
 
-    .confetti {
-      font-size: 50px;
-      margin-bottom: 20px;
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: hsl(var(--hue), 100%, 50%);
+      top: -10px;
+      animation: fall 4s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
   <div class="border-container">
-    <div class="confetti">🎉🎉🎉</div>
     <h1>Congratulations!</h1>
     <div id="message">
       <p>You’ve completed the scavenger hunt!</p>
-      <p>All your answers were correct.</p>
-      <p>We hope this challenge made you think critically, creatively, and curiously—just like the artists we've explored together.</p>
-      <p>Thanks for playing. Happy learning! -Melissa and Angelina🎨🧠🔍</p>
+      <p>Hope you had fun. Thank you for playing! Thanks to Sebastian and Lucy, as well as CU class of 2028.</p>
+      <p>-Melissa and Angelina</p>
+      <p>P.S. I'll miss you Section C</p>
     </div>
   </div>
+
+  <script>
+    // Generate falling confetti
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti-piece');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDelay = Math.random() * 4 + 's';
+      confetti.style.setProperty('--hue', Math.floor(Math.random() * 360));
+      document.body.appendChild(confetti);
+    }
+  </script>
 </body>
 </html>
